@@ -13,7 +13,7 @@ describe('Burger Constructor', () => {
 
     cy.visit(testUrl);
 
-    cy.wait('@getIngredients', { timeout: 40000 });
+    cy.wait('@getIngredients', { timeout: 10000 });
   });
 
   afterEach(() => {

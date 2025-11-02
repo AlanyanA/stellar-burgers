@@ -80,7 +80,7 @@ Cypress.Commands.add('loginUser', () => {
 
   cy.setCookie('accessToken', 'mock-access-token');
   window.localStorage.setItem('refreshToken', 'mock-refresh-token');
-  cy.visit('http://localhost:49850/profile');
+  cy.visit('http://localhost:60784/profile');
   cy.wait('@getUser');
-  cy.visit('http://localhost:49850/');
+  cy.visit('http://localhost:60784/');
 });
