@@ -40,8 +40,8 @@ Cypress.Commands.add('authenticateUser', () => {
   }).as('authRequest');
 
   cy.setCookie('accessToken', 'mock-access-token');
-  window.localStorage.setItem('refreshToken', 'mock-refresh-token');
-  cy.visit('http://localhost:60784/profile');
+  cy.window().then((win) => win.localStorage.setItem('refreshToken', 'mock-refresh-token'));
+  cy.visit('http://localhost:51404/profile');
   cy.wait('@authRequest');
-  cy.visit('http://localhost:60784/');
+  cy.visit('http://localhost:51404/');
 });

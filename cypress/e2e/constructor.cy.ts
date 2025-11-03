@@ -17,12 +17,15 @@ describe('Space Burger Builder (Shuffled Data)', () => {
 
     cy.visit(burgerTestUrl);
 
-    cy.wait('@getIngredients', { timeout: 10000 });
+    cy.wait('@getIngredients', { timeout: 5000 });
   });
 
   afterEach(() => {
-    cy.clearCookies();
-    cy.clearLocalStorage();
+    // Clear only existing cookies and clear localStorage via the app window
+    cy.getCookies().then((cookies) => {
+      cookies.forEach((c) => cy.clearCookie(c.name));
+    });
+    cy.window().then((win) => win.localStorage.clear());
   });
 
   describe('Модальное окно ингредиента', () => {
@@ -71,8 +74,8 @@ describe('Space Burger Builder (Shuffled Data)', () => {
     });
 
     it('авторизованный пользователь может оформить заказ', () => {
-      cy.setCookie('accessToken', 'mock-access-token');
-      window.localStorage.setItem('refreshToken', 'mock-refresh-token');
+  cy.setCookie('accessToken', 'mock-access-token');
+  cy.window().then((win) => win.localStorage.setItem('refreshToken', 'mock-refresh-token'));
 
       cy.window().then((win) => {
         (win as any).store.dispatch({
