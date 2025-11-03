@@ -1,46 +1,40 @@
 import { rootReducer } from '../store';
 
-describe('rootReducer initialization', () => {
-  it('should initialize all slices with their default state', () => {
-    const state = rootReducer(undefined, { type: '@@INIT' });
+describe('RootReducer: начальное состояние слайсов', () => {
+  it('инициализирует все части стора начальными значениями', () => {
+    const snapshot = rootReducer(undefined, { type: '@@INIT' });
 
-    // userSlice
-    expect(state.user).toEqual({
+    expect(snapshot.user).toEqual({
       user: null,
       isInit: false,
       isLoading: false,
       error: null
     });
 
-    // ingredientsSlice
-    expect(state.ingredients).toEqual({
+    expect(snapshot.ingredients).toEqual({
       ingredients: [],
       isLoading: false,
       error: null
     });
 
-    // constructorSlice
-    expect(state.burgerConstructor).toEqual({
+    expect(snapshot.burgerConstructor).toEqual({
       bun: null,
       ingredients: []
     });
 
-    // orderSlice
-    expect(state.order).toEqual({
+    expect(snapshot.order).toEqual({
       orderModalData: null,
       orderRequest: false,
       orderError: null
     });
 
-    // feedSlice
-    expect(state.feed).toEqual({
+    expect(snapshot.feed).toEqual({
       feedData: null,
       isLoading: false,
       error: null
     });
 
-    // userOrdersSlice
-    expect(state.userOrders).toEqual({
+    expect(snapshot.userOrders).toEqual({
       orders: [],
       isLoading: false,
       error: null

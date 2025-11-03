@@ -1,9 +1,9 @@
 declare namespace Cypress {
   interface Chainable {
-    addIngredient(ingredientName: string): Chainable<void>
+    addIngredient(ingredientLabel: string): Chainable<void>
     closeModal(): Chainable<void>
-    checkConstructorCleared(): Chainable<void>
-    loginUser(): Chainable<void>
-    createOrder(): Chainable<void>;
+    verifyConstructorReset(): Chainable<void>
+    authenticateUser(): Chainable<void>
+    submitOrder(): Chainable<void>;
   }
 }

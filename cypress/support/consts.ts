@@ -1,3 +1,3 @@
-export const testUrl = 'http://localhost:60784';
-export const modalSelector = '[data-testid="modal"]';
-export const bunName = 'Краторная булка N-200i';
+export const burgerTestUrl = 'http://localhost:60784';
+export const modalBoxSelector = '[data-testid="modal"]';
+export const baseBunName = 'Краторная булка N-200i';
