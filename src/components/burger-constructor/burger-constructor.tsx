@@ -21,7 +21,6 @@ export const BurgerConstructor: FC = () => {
   const orderRequest = useSelector(selectOrderRequest);
   const orderModalData = useSelector(selectOrderModalData);
   const orderError = useSelector(selectOrderError);
- 
   const closeOrderModal = () => {
     dispatch(clearOrder());
   };

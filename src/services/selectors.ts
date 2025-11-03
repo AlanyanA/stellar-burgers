@@ -1,10 +1,13 @@
 import { Root } from 'react-dom/client';
 import { RootState } from './store';
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectConstructorItems = (state: RootState) => ({
-  bun: state.burgerConstructor.bun,
-  ingredients: state.burgerConstructor.ingredients
-});
+// Memoized selector to avoid returning a new object each call
+export const selectConstructorItems = createSelector(
+  (state: RootState) => state.burgerConstructor.bun,
+  (state: RootState) => state.burgerConstructor.ingredients,
+  (bun, ingredients) => ({ bun, ingredients })
+);
 
 export const selectIsAuthChecked = (state: RootState): boolean =>
   state.user.isInit;

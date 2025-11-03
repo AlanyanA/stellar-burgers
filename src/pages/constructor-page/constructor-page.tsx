@@ -13,6 +13,7 @@ export const ConstructorPage: FC = () => {
   const isIngredientsLoading = useSelector(selectIngredientsLoading);
   const dispatch = useDispatch();
 
+  /* eslint-disable-next-line arrow-body-style */
   useEffect(() => {
     return () => {
       dispatch(clearOrder());

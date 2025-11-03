@@ -41,7 +41,7 @@ Cypress.Commands.add('authenticateUser', () => {
 
   cy.setCookie('accessToken', 'mock-access-token');
   cy.window().then((win) => win.localStorage.setItem('refreshToken', 'mock-refresh-token'));
-  cy.visit('http://localhost:51404/profile');
+  cy.visit('/profile');
   cy.wait('@authRequest');
-  cy.visit('http://localhost:51404/');
+  cy.visit('/');
 });

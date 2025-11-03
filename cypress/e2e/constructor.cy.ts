@@ -30,15 +30,25 @@ describe('Space Burger Builder (Shuffled Data)', () => {
 
   describe('Модальное окно ингредиента', () => {
     it('открытие и закрытие модального окна ингредиента', () => {
-      cy.contains(BunName).click();
-      cy.get(modalBoxSelector).should('be.visible');
+      // click the ingredient link (ensure we click the anchor to set location state)
+      cy.get('a[href*="/ingredients/"]')
+        .contains(BunName, { timeout: 10000 })
+        .scrollIntoView()
+        .click();
+      // wait for the route to change to ingredient details and then for modal
+      cy.location('pathname', { timeout: 10000 }).should('match', /\/ingredients\/[\w-]+/);
+      cy.get(modalBoxSelector, { timeout: 20000 }).should('be.visible');
       cy.get('[data-testid="modal-close"]').click();
       cy.get(modalBoxSelector).should('not.exist');
     });
 
     it('отображение правильного ингредиента в модальном окне', () => {
-      cy.contains(BunName).click();
-      cy.get(modalBoxSelector)
+      cy.get('a[href*="/ingredients/"]')
+        .contains(BunName, { timeout: 10000 })
+        .scrollIntoView()
+        .click();
+      cy.location('pathname', { timeout: 10000 }).should('match', /\/ingredients\/[\w-]+/);
+      cy.get(modalBoxSelector, { timeout: 20000 })
         .should('contain.text', BunName)
         .should('contain.text', '999')
         .should('contain.text', '55')
