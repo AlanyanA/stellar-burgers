@@ -91,6 +91,9 @@ module.exports = {
     static: path.join(__dirname, './dist'),
     compress: true,
     historyApiFallback: true,
-    port: process.env.PORT || 4000
+    port: process.env.PORT || 4000,
+    client: {
+      overlay: false
+    }
   }
 };

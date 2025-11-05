@@ -1,5 +1,13 @@
 Cypress.Commands.add('addIngredient', (ingredientLabel) => {
-  cy.contains(ingredientLabel).parent().find('button').click();
+  cy.contains(ingredientLabel)
+    .scrollIntoView()
+    .parents('li')
+    .first()
+    .within(() => {
+      cy.contains('button', 'Добавить', { timeout: 10000 })
+        .scrollIntoView()
+        .click();
+    });
 });
 
 // Закрыть модальное окно
