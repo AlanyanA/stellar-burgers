@@ -118,7 +118,7 @@ describe('constructor slice reducers', () => {
     state = constructorReducer(state, moveIngredientUp(bId));
     expect(state.ingredients[0].id).toBe(bId);
 
-    //  b обратно назад -> порядок a, b, c 
+    //  b обратно назад -> порядок a, b, c
     state = constructorReducer(state, moveIngredientDown(bId));
     expect(state.ingredients[1].id).toBe(bId);
   });
