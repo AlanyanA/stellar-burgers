@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "1111abcd0000abcd0000abcd",
+      "name": "Новая булка HyperDrive",
+      "type": "bun",
+      "proteins": 55,
+      "fat": 15,
+      "carbohydrates": 28,
+      "calories": 999,
+      "price": 2025,
+      "image": "https://code.s3.yandex.net/react/code/bun-02.png",
+      "image_mobile": "https://code.s3.yandex.net/react/code/bun-02-mobile.png",
+      "image_large": "https://code.s3.yandex.net/react/code/bun-02-large.png",
+      "__v": 0
+    },
+    {
+      "_id": "1111abcd0000abcd0001abcd",
+      "name": "Котлета Теллуриевого Жука",
+      "type": "main",
+      "proteins": 350,
+      "fat": 99,
+      "carbohydrates": 209,
+      "calories": 3100,
+      "price": 355,
+      "image": "https://code.s3.yandex.net/react/code/meat-01.png",
+      "image_mobile": "https://code.s3.yandex.net/react/code/meat-01-mobile.png",
+      "image_large": "https://code.s3.yandex.net/react/code/meat-01-large.png",
+      "__v": 0
+    },
+    {
+      "_id": "1111abcd0000abcd0002abcd",
+      "name": "Соус SuperNova",
+      "type": "sauce",
+      "proteins": 22,
+      "fat": 12,
+      "carbohydrates": 33,
+      "calories": 50,
+      "price": 110,
+      "image": "https://code.s3.yandex.net/react/code/sauce-02.png",
+      "image_mobile": "https://code.s3.yandex.net/react/code/sauce-02-mobile.png",
+      "image_large": "https://code.s3.yandex.net/react/code/sauce-02-large.png",
+      "__v": 0
+    },
+    {
+      "_id": "1111abcd0000abcd0003abcd",
+      "name": "Салат Кристаллический Метеор",
+      "type": "main",
+      "proteins": 12,
+      "fat": 4,
+      "carbohydrates": 44,
+      "calories": 88,
+      "price": 1800,
+      "image": "https://code.s3.yandex.net/react/code/salad.png",
+      "image_mobile": "https://code.s3.yandex.net/react/code/salad-mobile.png",
+      "image_large": "https://code.s3.yandex.net/react/code/salad-large.png",
+      "__v": 0
+    }
+  ]
+}

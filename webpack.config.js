@@ -1,4 +1,6 @@
 const path = require('path');
+// Load .env into process.env for webpack config (so devServer.port can use it)
+require('dotenv').config();
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
@@ -89,6 +91,9 @@ module.exports = {
     static: path.join(__dirname, './dist'),
     compress: true,
     historyApiFallback: true,
-    port: 4000
+    port: process.env.PORT || 4000,
+    client: {
+      overlay: false
+    }
   }
 };

@@ -1,10 +1,34 @@
 import { setCookie, getCookie } from './cookie';
 import { TIngredient, TOrder, TOrdersData, TUser } from './types';
 
-const URL = process.env.BURGER_API_URL;
+const URL =
+  process.env.BURGER_API_URL || 'https://norma.nomoreparties.space/api';
 
-const checkResponse = <T>(res: Response): Promise<T> =>
-  res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+const checkResponse = async <T>(res: Response): Promise<T> => {
+  const contentType = (res.headers.get('content-type') || '').toLowerCase();
+
+  if (!res.ok) {
+    if (contentType.includes('application/json')) {
+      const err = await res.json();
+      return Promise.reject(err);
+    }
+    const text = await res.text();
+    return Promise.reject(new Error(`Non-JSON error response: ${text}`));
+  }
+
+  if (contentType.includes('application/json')) {
+    return res.json() as Promise<T>;
+  }
+
+  const text = await res.text();
+  try {
+    return JSON.parse(text) as T;
+  } catch (e) {
+    throw new Error(
+      `Expected JSON response but received: ${text.slice(0, 200)}`
+    );
+  }
+};
 
 type TServerResponse<T> = {
   success: boolean;
